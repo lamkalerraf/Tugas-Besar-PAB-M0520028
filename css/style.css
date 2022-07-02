@@ -1,0 +1,60 @@
+*{
+    font-family: sans-serif;
+}
+
+.offcanvas{
+    width: 100%;
+}
+
+nav{
+    background-color: #884EA0;
+}
+
+.bg-dropdown-menu{
+    background-color: #9B59B6;
+}
+
+.dropdown-item{
+    width: auto;
+}
+
+.screen-display{
+    background-color: #ECF0F1;
+}
+
+.display{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 240px;
+    width: 300px;
+    font-size: 30px;
+    background-color: #ECF0F1;
+    overflow-x: scroll;
+}
+
+#display::-webkit-scrollbar{
+    display: block;
+    height: 25px;
+}
+
+td button{
+    margin: auto 7px;
+}
+
+button{
+    height: 60px;
+    width: 60px;
+}
+
+.btn-operator{
+    background-color: #ECF0F1;
+}
+
+.btn-equal{
+    background-color: #9B59B6;
+}
+
+span{
+    width: 60px;
+}
