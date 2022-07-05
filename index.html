@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="resources/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Calculator -->
+    <div class="mx-auto">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand text-white"><i class="bi bi-calculator-fill text-white"></i> Calculator</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigastion">
+                    <span><i class="bi bi-list text-white fs-1"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white-50 active border-top" aria-current="page">Calculator</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link text-white dropdown-toggle" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Unit Converter
+                            </a>
+                            <ul class="dropdown-menu bg-dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a href="#offcanvasArea" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-textarea fs-6"></i> Area</a></li>
+                                <li><a href="#offcanvasData" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bar-chart fs-6"></i> Data Transfer</a></li>
+                                <li><a href="#offcanvasStorage" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-sd-card fs-6"></i> Digital Storage</a></li>
+                                <li><a href="#offcanvasEnergy" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bullseye fs-6"></i> Energy</a></li>
+                                <li><a href="#offcanvasFrequency" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-activity fs-6"></i> Frequency</a></li>
+                                <li><a href="#offcanvasLength" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-rulers fs-6"></i> Length</a></li>
+                                <li><a href="#offcanvasMass" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-binoculars fs-6"></i> Mass</a></li>
+                                <li><a href="#offcanvasPressure" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-arrow-down-up fs-6"></i> Pressure</a></li>
+                                <li><a href="#offcanvasSpeed" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-speedometer fs-6"></i> Speed</a></li>
+                                <li><a href="#offcanvasTemperature" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-thermometer-half fs-6"></i> Temperature</a></li>
+                                <li><a href="#offcanvasTime" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-alarm fs-6"></i> Time</a></li>
+                                <li><a href="#offcanvasVolume" class="dropdown-item text-white" data-bs-toggle="offcanvas"><i class="bi bi-box fs-6"></i> Volume</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Screen display -->
+        <div class="screen-display">
+            <div class="display mx-auto">
+                <div id="display"></div>
+            </div>
+        </div>
+        <!-- Buttons -->
+        <table class="table table-borderless text-center">
+            <tr>
+                <td>
+                    <button class="btn fs-1" id="clear">C</button>
+                    <button class="btn fs-1" id="/100"><i class="bi bi-percent"></i></button>
+                    <button class="btn fs-1" id="backspace"><i class="bi bi-backspace"></i></button>
+                    <button class="btn btn-operator rounded-circle fs-1" id="/"><i class="bi bi-slash-lg"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn fs-1" id="7">7</button>
+                    <button class="btn fs-1" id="8">8</button>
+                    <button class="btn fs-1" id="9">9</button>
+                    <button class="btn btn-operator rounded-circle fs-1" id="*"><i class="bi bi-x-lg"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn fs-1" id="4">4</button>
+                    <button class="btn fs-1" id="5">5</button>
+                    <button class="btn fs-1" id="6">6</button>
+                    <button class="btn btn-operator rounded-circle fs-1" id="+"><i class="bi bi-plus-lg"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn fs-1" id="1">1</button>
+                    <button class="btn fs-1" id="2">2</button>
+                    <button class="btn fs-1" id="3">3</button>
+                    <button class="btn btn-operator rounded-circle fs-1" id="-"><i class="bi bi-dash-lg"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn fs-1" id="00">00</button>
+                    <button class="btn fs-1" id="0">0</button>
+                    <button class="btn fs-1" id="."><i class="bi bi-dot"></i></button>
+                    <button class="btn btn-equal rounded-circle text-white fs-1" id="equal">=</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- Area converter -->
+    <div class="mx-auto offcanvas offcanvas-start" tabindex="-1" id="offcanvasArea" aria-labelledby="offcanvasAreaLabel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand text-white"><i class="bi bi-textarea"></i> Area Converter</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigastion">
+                    <span><i class="bi bi-list text-white fs-1"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#offcanvasCalculator" class="nav-link text-white border-top" data-bs-toggle="offcanvas">Calculator</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link text-white dropdown-toggle" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Unit Converter
+                            </a>
+                            <ul class="dropdown-menu bg-dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a href="#" class="dropdown-item text-white-50 border-bottom"><i class="bi bi-textarea fs-6"></i> Area</a></li>
+                                <li><a href="#offcanvasData" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bar-chart fs-6"></i> Data Transfer</a></li>
+                                <li><a href="#offcanvasStorage" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-sd-card fs-6"></i> Digital Storage</a></li>
+                                <li><a href="#offcanvasEnergy" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bullseye fs-6"></i> Energy</a></li>
+                                <li><a href="#offcanvasFrequency" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-activity fs-6"></i> Frequency</a></li>
+                                <li><a href="#offcanvasLength" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-rulers fs-6"></i> Length</a></li>
+                                <li><a href="#offcanvasMass" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-binoculars fs-6"></i> Mass</a></li>
+                                <li><a href="#offcanvasPressure" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-arrow-down-up fs-6"></i> Pressure</a></li>
+                                <li><a href="#offcanvasSpeed" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-speedometer fs-6"></i> Speed</a></li>
+                                <li><a href="#offcanvasTemperature" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-thermometer-half fs-6"></i> Temperature</a></li>
+                                <li><a href="#offcanvasTime" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-alarm fs-6"></i> Time</a></li>
+                                <li><a href="#offcanvasVolume" class="dropdown-item text-white" data-bs-toggle="offcanvas"><i class="bi bi-box fs-6"></i> Volume</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Label dan input -->
+        <div class="card border-bottom-0">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Metric Units</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="input-group mt-3 mb-3">
+                    <input type="number" name="km2" id="km2" class="form-control text-center area-input" placeholder="square kilometer">
+                    <span class="input-group-text">km&sup2;</span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="m2" id="m2" class="form-control text-center area-input" placeholder="square meter">
+                    <span class="input-group-text">m&sup2;</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" name="ha" id="ha" class="form-control text-center area-input" placeholder="hectare">
+                    <span class="input-group-text">ha</span>
+                </div>
+            </div>
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Imperial Units</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="input-group mt-3 mb-3">
+                    <input type="number" name="mi2" id="mi2" class="form-control text-center area-input" placeholder="square mile">
+                    <span class="input-group-text">mi&sup2;</span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="ac" id="ac" class="form-control text-center area-input" placeholder="acre">
+                    <span class="input-group-text">ac</span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="yd2" id="yd2" class="form-control text-center area-input" placeholder="square yard">
+                    <span class="input-group-text">yd&sup2;</span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="ft2" id="ft2" class="form-control text-center area-input" placeholder="square foot">
+                    <span class="input-group-text">ft&sup2;</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" name="in2" id="in2" class="form-control text-center area-input" placeholder="square inch">
+                    <span class="input-group-text">in&sup2;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Data transfer converter -->
+    <div class="mx-auto offcanvas offcanvas-start" tabindex="-1" id="offcanvasData" aria-labelledby="offcanvasDataLabel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand text-white"><i class="bi bi-bar-chart"></i> Data Transfer Converter</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigastion">
+                    <span><i class="bi bi-list text-white fs-1"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#offcanvasCalculator" class="nav-link text-white border-top" data-bs-toggle="offcanvas">Calculator</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link text-white dropdown-toggle" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Unit Converter
+                            </a>
+                            <ul class="dropdown-menu bg-dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a href="#offcanvasArea" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-textarea fs-6"></i> Area</a></li>
+                                <li><a href="#" class="dropdown-item text-white-50 border-bottom"><i class="bi bi-bar-chart fs-6"></i> Data Transfer</a></li>
+                                <li><a href="#offcanvasStorage" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-sd-card fs-6"></i> Digital Storage</a></li>
+                                <li><a href="#offcanvasEnergy" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bullseye fs-6"></i> Energy</a></li>
+                                <li><a href="#offcanvasFrequency" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-activity fs-6"></i> Frequency</a></li>
+                                <li><a href="#offcanvasLength" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-rulers fs-6"></i> Length</a></li>
+                                <li><a href="#offcanvasMass" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-binoculars fs-6"></i> Mass</a></li>
+                                <li><a href="#offcanvasPressure" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-arrow-down-up fs-6"></i> Pressure</a></li>
+                                <li><a href="#offcanvasSpeed" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-speedometer fs-6"></i> Speed</a></li>
+                                <li><a href="#offcanvasTemperature" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-thermometer-half fs-6"></i> Temperature</a></li>
+                                <li><a href="#offcanvasTime" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-alarm fs-6"></i> Time</a></li>
+                                <li><a href="#offcanvasVolume" class="dropdown-item text-white" data-bs-toggle="offcanvas"><i class="bi bi-box fs-6"></i> Volume</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Label dan input -->
+        <div class="card border-bottom-0">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Bit Units</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="input-group mb-2">
+                    <input type="number" name="bits" id="bits" class="form-control text-center data-input" placeholder="bit/second">
+                    <span class="input-group-text">b/s</span>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="number" name="kbits" id="kbits" class="form-control text-center data-input" placeholder="kilobit/second">
+                    <span class="input-group-text">Kb/s</span>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="number" name="mbits" id="mbits" class="form-control text-center data-input" placeholder="megabit/second">
+                    <span class="input-group-text">Mb/s</span>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="number" name="gbits" id="gbits" class="form-control text-center data-input" placeholder="gigabit/second">
+                    <span class="input-group-text">Gb/s</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" name="tbits" id="tbits" class="form-control text-center data-input" placeholder="terabit/second">
+                    <span class="input-group-text">Tb/s</span>
+                </div>
+            </div>
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Byte Units</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="input-group mb-2">
+                    <input type="number" name="bytes" id="bytes" class="form-control text-center data-input" placeholder="byte/second">
+                    <span class="input-group-text">B/s</span>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="number" name="kbytes" id="kbytes" class="form-control text-center data-input" placeholder="kilobyte/second">
+                    <span class="input-group-text">KB/s</span>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="number" name="mbytes" id="mbytes" class="form-control text-center data-input" placeholder="megabyte/second">
+                    <span class="input-group-text">MB/s</span>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="number" name="gbytes" id="gbytes" class="form-control text-center data-input" placeholder="gigabyte/second">
+                    <span class="input-group-text">GB/s</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" name="tbytes" id="tbytes" class="form-control text-center data-input" placeholder="terabyte/second">
+                    <span class="input-group-text">TB/s</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Storage converter -->
+    <div class="mx-auto offcanvas offcanvas-start" tabindex="-1" id="offcanvasStorage" aria-labelledby="offcanvasStorageLabel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand text-white"><i class="bi bi-sd-card"></i> Digital Storage Converter</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigastion">
+                    <span><i class="bi bi-list text-white fs-1"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#offcanvasCalculator" class="nav-link text-white border-top" data-bs-toggle="offcanvas">Calculator</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link text-white dropdown-toggle" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Unit Converter
+                            </a>
+                            <ul class="dropdown-menu bg-dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a href="#offcanvasArea" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-textarea fs-6"></i> Area</a></li>
+                                <li><a href="#offcanvasData" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bar-chart fs-6"></i> Data Transfer</a></li>
+                                <li><a href="#" class="dropdown-item text-white-50 border-bottom"><i class="bi bi-sd-card fs-6"></i> Digital Storage</a></li>
+                                <li><a href="#offcanvasEnergy" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bullseye fs-6"></i> Energy</a></li>
+                                <li><a href="#offcanvasFrequency" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-activity fs-6"></i> Frequency</a></li>
+                                <li><a href="#offcanvasLength" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-rulers fs-6"></i> Length</a></li>
+                                <li><a href="#offcanvasMass" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-binoculars fs-6"></i> Mass</a></li>
+                                <li><a href="#offcanvasPressure" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-arrow-down-up fs-6"></i> Pressure</a></li>
+                                <li><a href="#offcanvasSpeed" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-speedometer fs-6"></i> Speed</a></li>
+                                <li><a href="#offcanvasTemperature" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-thermometer-half fs-6"></i> Temperature</a></li>
+                                <li><a href="#offcanvasTime" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-alarm fs-6"></i> Time</a></li>
+                                <li><a href="#offcanvasVolume" class="dropdown-item text-white" data-bs-toggle="offcanvas"><i class="bi bi-box fs-6"></i> Volume</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Label dan input -->
+        <div class="card border-bottom-0">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Bit Units</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="input-group mb-2">
+                    <input type="number" name="bit" id="bit" class="form-control text-center storage-input" placeholder="bit">
+                    <span class="input-group-text">b</span>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="number" name="kbit" id="kbit" class="form-control text-center storage-input" placeholder="kilobit">
+                    <span class="input-group-text">Kb</span>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="number" name="mbit" id="mbit" class="form-control text-center storage-input" placeholder="megabit">
+                    <span class="input-group-text">Mb</span>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="number" name="gbit" id="gbit" class="form-control text-center storage-input" placeholder="gigabit">
+                    <span class="input-group-text">Gb</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" name="tbit" id="tbit" class="form-control text-center storage-input" placeholder="terabit">
+                    <span class="input-group-text">Tb</span>
+                </div>
+            </div>
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Byte Units</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="input-group mb-2">
+                    <input type="number" name="byte" id="byte" class="form-control text-center storage-input" placeholder="byte">
+                    <span class="input-group-text">B</span>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="number" name="kbyte" id="kbyte" class="form-control text-center storage-input" placeholder="kilobyte">
+                    <span class="input-group-text">KB</span>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="number" name="mbyte" id="mbyte" class="form-control text-center storage-input" placeholder="megabyte">
+                    <span class="input-group-text">MB</span>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="number" name="gbyte" id="gbyte" class="form-control text-center storage-input" placeholder="gigabyte">
+                    <span class="input-group-text">GB</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" name="tbyte" id="tbyte" class="form-control text-center storage-input" placeholder="terabyte">
+                    <span class="input-group-text">TB</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Energy converter -->
+    <div class="mx-auto offcanvas offcanvas-start" tabindex="-1" id="offcanvasEnergy" aria-labelledby="offcanvasEnergyLabel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand text-white"><i class="bi bi-bullseye"></i> Energy Converter</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigastion">
+                    <span><i class="bi bi-list text-white fs-1"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#offcanvasCalculator" class="nav-link text-white border-top" data-bs-toggle="offcanvas">Calculator</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link text-white dropdown-toggle" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Unit Converter
+                            </a>
+                            <ul class="dropdown-menu bg-dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a href="#offcanvasArea" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-textarea fs-6"></i> Area</a></li>
+                                <li><a href="#offcanvasData" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bar-chart fs-6"></i> Data Transfer</a></li>
+                                <li><a href="#offcanvasStorage" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-sd-card fs-6"></i> Digital Storage</a></li>
+                                <li><a href="#" class="dropdown-item text-white-50 border-bottom"><i class="bi bi-bullseye fs-6"></i> Energy</a></li>
+                                <li><a href="#offcanvasFrequency" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-activity fs-6"></i> Frequency</a></li>
+                                <li><a href="#offcanvasLength" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-rulers fs-6"></i> Length</a></li>
+                                <li><a href="#offcanvasMass" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-binoculars fs-6"></i> Mass</a></li>
+                                <li><a href="#offcanvasPressure" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-arrow-down-up fs-6"></i> Pressure</a></li>
+                                <li><a href="#offcanvasSpeed" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-speedometer fs-6"></i> Speed</a></li>
+                                <li><a href="#offcanvasTemperature" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-thermometer-half fs-6"></i> Temperature</a></li>
+                                <li><a href="#offcanvasTime" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-alarm fs-6"></i> Time</a></li>
+                                <li><a href="#offcanvasVolume" class="dropdown-item text-white" data-bs-toggle="offcanvas"><i class="bi bi-box fs-6"></i> Volume</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Label dan input -->
+        <div class="card border-bottom-0">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Energy</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="input-group mt-3 mb-3">
+                    <input type="number" name="joule" id="joule" class="form-control text-center energy-input" placeholder="joule">
+                    <span class="input-group-text">J</span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="kjoule" id="kjoule" class="form-control text-center energy-input" placeholder="kilojoule">
+                    <span class="input-group-text">kJ</span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="grcal" id="grcal" class="form-control text-center energy-input" placeholder="gram calorie">
+                    <span class="input-group-text">cal</span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="kcal" id="kcal" class="form-control text-center energy-input" placeholder="kilocalorie">
+                    <span class="input-group-text">kcal</span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="watth" id="watth" class="form-control text-center energy-input" placeholder="watt hour">
+                    <span class="input-group-text">W</span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="kwatth" id="kwatth" class="form-control text-center energy-input" placeholder="kilowatt hour">
+                    <span class="input-group-text">kW</span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="btu" id="btu" class="form-control text-center energy-input" placeholder="british thermal unit">
+                    <span class="input-group-text">Btu</span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="ustherm" id="ustherm" class="form-control text-center energy-input" placeholder="us therm">
+                    <span class="input-group-text">U.S.</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" name="ftp" id="ftp" class="form-control text-center energy-input" placeholder="foot-pound">
+                    <span class="input-group-text">ft&#183;lb</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Frequency converter -->
+    <div class="mx-auto offcanvas offcanvas-start" tabindex="-1" id="offcanvasFrequency" aria-labelledby="offcanvasFrequencyLabel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand text-white"><i class="bi bi-activity"></i> Frequency Converter</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigastion">
+                    <span><i class="bi bi-list text-white fs-1"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#offcanvasCalculator" class="nav-link text-white border-top" data-bs-toggle="offcanvas">Calculator</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link text-white dropdown-toggle" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Unit Converter
+                            </a>
+                            <ul class="dropdown-menu bg-dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a href="#offcanvasArea" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-textarea fs-6"></i> Area</a></li>
+                                <li><a href="#offcanvasData" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bar-chart fs-6"></i> Data Transfer</a></li>
+                                <li><a href="#offcanvasStorage" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-sd-card fs-6"></i> Digital Storage</a></li>
+                                <li><a href="#offcanvasEnergy" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bullseye fs-6"></i> Energy</a></li>
+                                <li><a href="#" class="dropdown-item text-white-50 border-bottom"><i class="bi bi-activity fs-6"></i> Frequency</a></li>
+                                <li><a href="#offcanvasLength" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-rulers fs-6"></i> Length</a></li>
+                                <li><a href="#offcanvasMass" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-binoculars fs-6"></i> Mass</a></li>
+                                <li><a href="#offcanvasPressure" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-arrow-down-up fs-6"></i> Pressure</a></li>
+                                <li><a href="#offcanvasSpeed" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-speedometer fs-6"></i> Speed</a></li>
+                                <li><a href="#offcanvasTemperature" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-thermometer-half fs-6"></i> Temperature</a></li>
+                                <li><a href="#offcanvasTime" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-alarm fs-6"></i> Time</a></li>
+                                <li><a href="#offcanvasVolume" class="dropdown-item text-white" data-bs-toggle="offcanvas"><i class="bi bi-box fs-6"></i> Volume</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Label dan input -->
+        <div class="card border-bottom-0">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Frequency</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="input-group mt-5 mb-5">
+                    <input type="number" name="hertz" id="hertz" class="form-control text-center freq-input" placeholder="hertz">
+                    <span class="input-group-text">Hz</span>
+                </div>
+                <div class="input-group mb-5">
+                    <input type="number" name="khertz" id="khertz" class="form-control text-center freq-input" placeholder="kilohertz">
+                    <span class="input-group-text">kHz</span>
+                </div>
+                <div class="input-group mb-5">
+                    <input type="number" name="mhertz" id="mhertz" class="form-control text-center freq-input" placeholder="megahertz">
+                    <span class="input-group-text">MHz</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" name="ghertz" id="ghertz" class="form-control text-center freq-input" placeholder="gigahertz">
+                    <span class="input-group-text">GHz</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Length converter -->
+    <div class="mx-auto offcanvas offcanvas-start" tabindex="-1" id="offcanvasLength" aria-labelledby="offcanvasLengthLabel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand text-white"><i class="bi bi-rulers"></i> Length Converter</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigastion">
+                    <span><i class="bi bi-list text-white fs-1"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#offcanvasCalculator" class="nav-link text-white border-top" data-bs-toggle="offcanvas">Calculator</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link text-white dropdown-toggle" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Unit Converter
+                            </a>
+                            <ul class="dropdown-menu bg-dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a href="#offcanvasArea" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-textarea fs-6"></i> Area</a></li>
+                                <li><a href="#offcanvasData" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bar-chart fs-6"></i> Data Transfer</a></li>
+                                <li><a href="#offcanvasStorage" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-sd-card fs-6"></i> Digital Storage</a></li>
+                                <li><a href="#offcanvasEnergy" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bullseye fs-6"></i> Energy</a></li>
+                                <li><a href="#offcanvasFrequency" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-activity fs-6"></i> Frequency</a></li>
+                                <li><a href="#" class="dropdown-item text-white-50 border-bottom"><i class="bi bi-rulers fs-6"></i> Length</a></li>
+                                <li><a href="#offcanvasMass" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-binoculars fs-6"></i> Mass</a></li>
+                                <li><a href="#offcanvasPressure" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-arrow-down-up fs-6"></i> Pressure</a></li>
+                                <li><a href="#offcanvasSpeed" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-speedometer fs-6"></i> Speed</a></li>
+                                <li><a href="#offcanvasTemperature" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-thermometer-half fs-6"></i> Temperature</a></li>
+                                <li><a href="#offcanvasTime" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-alarm fs-6"></i> Time</a></li>
+                                <li><a href="#offcanvasVolume" class="dropdown-item text-white" data-bs-toggle="offcanvas"><i class="bi bi-box fs-6"></i> Volume</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Label dan input -->
+        <div class="card border-bottom-0">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Metric Units</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="input-group mb-1">
+                    <input type="number" name="km" id="km" class="form-control text-center length-input" placeholder="kilometre">
+                    <span class="input-group-text">km</span>
+                </div>
+                <div class="input-group mb-1">
+                    <input type="number" name="meter" id="meter" class="form-control text-center length-input" placeholder="meter">
+                    <span class="input-group-text">m</span>
+                </div>
+                <div class="input-group mb-1">
+                    <input type="number" name="cm" id="cm" class="form-control text-center length-input" placeholder="centimeter">
+                    <span class="input-group-text">cm</span>
+                </div>
+                <div class="input-group mb-1">
+                    <input type="number" name="mm" id="mm" class="form-control text-center length-input" placeholder="millimetre">
+                    <span class="input-group-text">mm</span>
+                </div>
+                <div class="input-group mb-1">
+                    <input type="number" name="micm" id="micm" class="form-control text-center length-input" placeholder="micrometres">
+                    <span class="input-group-text">&#181;m</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" name="nm" id="nm" class="form-control text-center length-input" placeholder="nanometre">
+                    <span class="input-group-text">nm</span>
+                </div>
+            </div>
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Imperial Units</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="input-group mb-1">
+                    <input type="number" name="mi" id="mi" class="form-control text-center length-input" placeholder="mile">
+                    <span class="input-group-text">mi</span>
+                </div>
+                <div class="input-group mb-1">
+                    <input type="number" name="yd" id="yd" class="form-control text-center length-input" placeholder="yard">
+                    <span class="input-group-text">yd</span>
+                </div>
+                <div class="input-group mb-1">
+                    <input type="number" name="ft" id="ft" class="form-control text-center length-input" placeholder="foot">
+                    <span class="input-group-text">ft</span>
+                </div>
+                <div class="input-group mb-1">
+                    <input type="number" name="in" id="in" class="form-control text-center length-input" placeholder="inch">
+                    <span class="input-group-text">in</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" name="nmi" id="nmi" class="form-control text-center length-input" placeholder="nautical mile">
+                    <span class="input-group-text">nmi</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mass converter -->
+    <div class="mx-auto offcanvas offcanvas-start" tabindex="-1" id="offcanvasMass" aria-labelledby="offcanvasMassLabel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand text-white"><i class="bi bi-binoculars"></i> Mass Converter</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigastion">
+                    <span><i class="bi bi-list text-white fs-1"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#offcanvasCalculator" class="nav-link text-white border-top" data-bs-toggle="offcanvas">Calculator</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link text-white dropdown-toggle" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Unit Converter
+                            </a>
+                            <ul class="dropdown-menu bg-dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a href="#offcanvasArea" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-textarea fs-6"></i> Area</a></li>
+                                <li><a href="#offcanvasData" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bar-chart fs-6"></i> Data Transfer</a></li>
+                                <li><a href="#offcanvasStorage" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-sd-card fs-6"></i> Digital Storage</a></li>
+                                <li><a href="#offcanvasEnergy" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bullseye fs-6"></i> Energy</a></li>
+                                <li><a href="#offcanvasFrequency" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-activity fs-6"></i> Frequency</a></li>
+                                <li><a href="#offcanvasLength" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-rulers fs-6"></i> Length</a></li>
+                                <li><a href="#" class="dropdown-item text-white-50 border-bottom"><i class="bi bi-binoculars fs-6"></i> Mass</a></li>
+                                <li><a href="#offcanvasPressure" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-arrow-down-up fs-6"></i> Pressure</a></li>
+                                <li><a href="#offcanvasSpeed" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-speedometer fs-6"></i> Speed</a></li>
+                                <li><a href="#offcanvasTemperature" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-thermometer-half fs-6"></i> Temperature</a></li>
+                                <li><a href="#offcanvasTime" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-alarm fs-6"></i> Time</a></li>
+                                <li><a href="#offcanvasVolume" class="dropdown-item text-white" data-bs-toggle="offcanvas"><i class="bi bi-box fs-6"></i> Volume</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Label dan input -->
+        <div class="card border-bottom-0">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Metric Units</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="input-group mb-2">
+                    <input type="number" name="ton" id="ton" class="form-control text-center mass-input" placeholder="ton">
+                    <span class="input-group-text">t</span>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="number" name="kg" id="kg" class="form-control text-center mass-input" placeholder="kilogram">
+                    <span class="input-group-text">kg</span>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="number" name="gram" id="gram" class="form-control text-center mass-input" placeholder="gram">
+                    <span class="input-group-text">g</span>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="number" name="mg" id="mg" class="form-control text-center mass-input" placeholder="milligram">
+                    <span class="input-group-text">mg</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" name="micg" id="micg" class="form-control text-center mass-input" placeholder="microgram">
+                    <span class="input-group-text">&#181;g</span>
+                </div>
+            </div>
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Imperial Units</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="input-group mb-2">
+                    <input type="number" name="lton" id="lton" class="form-control text-center mass-input" placeholder="long ton">
+                    <span class="input-group-text">lt</span>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="number" name="ston" id="ston" class="form-control text-center mass-input" placeholder="short ton">
+                    <span class="input-group-text">st</span>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="number" name="stone" id="stone" class="form-control text-center mass-input" placeholder="stone">
+                    <span class="input-group-text">st</span>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="number" name="pound" id="pound" class="form-control text-center mass-input" placeholder="pound">
+                    <span class="input-group-text">lb</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" name="ounce" id="ounce" class="form-control text-center mass-input" placeholder="ounce">
+                    <span class="input-group-text">oz</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pressure converter -->
+    <div class="mx-auto offcanvas offcanvas-start" tabindex="-1" id="offcanvasPressure" aria-labelledby="offcanvasPressureLabel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand text-white"><i class="bi bi-arrow-down-up"></i> Pressure Converter</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigastion">
+                    <span><i class="bi bi-list text-white fs-1"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#offcanvasCalculator" class="nav-link text-white border-top" data-bs-toggle="offcanvas">Calculator</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link text-white dropdown-toggle" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Unit Converter
+                            </a>
+                            <ul class="dropdown-menu bg-dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a href="#offcanvasArea" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-textarea fs-6"></i> Area</a></li>
+                                <li><a href="#offcanvasData" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bar-chart fs-6"></i> Data Transfer</a></li>
+                                <li><a href="#offcanvasStorage" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-sd-card fs-6"></i> Digital Storage</a></li>
+                                <li><a href="#offcanvasEnergy" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bullseye fs-6"></i> Energy</a></li>
+                                <li><a href="#offcanvasFrequency" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-activity fs-6"></i> Frequency</a></li>
+                                <li><a href="#offcanvasLength" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-rulers fs-6"></i> Length</a></li>
+                                <li><a href="#offcanvasMass" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-binoculars fs-6"></i> Mass</a></li>
+                                <li><a href="#" class="dropdown-item text-white-50 border-bottom"><i class="bi bi-arrow-down-up fs-6"></i> Pressure</a></li>
+                                <li><a href="#offcanvasSpeed" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-speedometer fs-6"></i> Speed</a></li>
+                                <li><a href="#offcanvasTemperature" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-thermometer-half fs-6"></i> Temperature</a></li>
+                                <li><a href="#offcanvasTime" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-alarm fs-6"></i> Time</a></li>
+                                <li><a href="#offcanvasVolume" class="dropdown-item text-white" data-bs-toggle="offcanvas"><i class="bi bi-box fs-6"></i> Volume</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Label dan input -->
+        <div class="card border-bottom-0">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Pressure</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="input-group mt-5 mb-5">
+                    <input type="number" name="bar" id="bar" class="form-control text-center press-input" placeholder="bar">
+                    <span class="input-group-text">bar</span>
+                </div>
+                <div class="input-group mb-5">
+                    <input type="number" name="pascal" id="pascal" class="form-control text-center press-input" placeholder="pascal">
+                    <span class="input-group-text">Pa</span>
+                </div>
+                <div class="input-group mb-5">
+                    <input type="number" name="ppsi" id="ppsi" class="form-control text-center press-input" placeholder="pound per square inch">
+                    <span class="input-group-text">psi</span>
+                </div>
+                <div class="input-group mb-5">
+                    <input type="number" name="atm" id="atm" class="form-control text-center press-input" placeholder="standart atmosphere">
+                    <span class="input-group-text">atm</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" name="torr" id="torr" class="form-control text-center press-input" placeholder="torr">
+                    <span class="input-group-text">torr</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Speed converter -->
+    <div class="mx-auto offcanvas offcanvas-start" tabindex="-1" id="offcanvasSpeed" aria-labelledby="offcanvasSpeedLabel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand text-white"><i class="bi bi-speedometer"></i> Speed Converter</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigastion">
+                    <span><i class="bi bi-list text-white fs-1"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#offcanvasCalculator" class="nav-link text-white border-top" data-bs-toggle="offcanvas">Calculator</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link text-white dropdown-toggle" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Unit Converter
+                            </a>
+                            <ul class="dropdown-menu bg-dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a href="#offcanvasArea" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-textarea fs-6"></i> Area</a></li>
+                                <li><a href="#offcanvasData" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bar-chart fs-6"></i> Data Transfer</a></li>
+                                <li><a href="#offcanvasStorage" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-sd-card fs-6"></i> Digital Storage</a></li>
+                                <li><a href="#offcanvasEnergy" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bullseye fs-6"></i> Energy</a></li>
+                                <li><a href="#offcanvasFrequency" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-activity fs-6"></i> Frequency</a></li>
+                                <li><a href="#offcanvasLength" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-rulers fs-6"></i> Length</a></li>
+                                <li><a href="#offcanvasMass" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-binoculars fs-6"></i> Mass</a></li>
+                                <li><a href="#offcanvasPressure" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-arrow-down-up fs-6"></i> Pressure</a></li>
+                                <li><a href="#" class="dropdown-item text-white-50 border-bottom"><i class="bi bi-speedometer fs-6"></i> Speed</a></li>
+                                <li><a href="#offcanvasTemperature" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-thermometer-half fs-6"></i> Temperature</a></li>
+                                <li><a href="#offcanvasTime" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-alarm fs-6"></i> Time</a></li>
+                                <li><a href="#offcanvasVolume" class="dropdown-item text-white" data-bs-toggle="offcanvas"><i class="bi bi-box fs-6"></i> Volume</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Label dan input -->
+        <div class="card border-bottom-0">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Speed</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="input-group mt-5 mb-5">
+                    <input type="number" name="mileph" id="mileph" class="form-control text-center speed-input" placeholder="miles per hour">
+                    <span class="input-group-text">mph</span>
+                </div>
+                <div class="input-group mb-5">
+                    <input type="number" name="footps" id="footps" class="form-control text-center speed-input" placeholder="foot per second">
+                    <span class="input-group-text">ft/s</span>
+                </div>
+                <div class="input-group mb-5">
+                    <input type="number" name="meterps" id="meterps" class="form-control text-center speed-input" placeholder="meter per second">
+                    <span class="input-group-text">m/s</span>
+                </div>
+                <div class="input-group mb-5">
+                    <input type="number" name="kmeterph" id="kmeterph" class="form-control text-center speed-input" placeholder="kilometer per hour">
+                    <span class="input-group-text">km/h</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" name="knot" id="knot" class="form-control text-center speed-input" placeholder="knot">
+                    <span class="input-group-text">kn</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Temperature converter -->
+    <div class="mx-auto offcanvas offcanvas-start" tabindex="-1" id="offcanvasTemperature" aria-labelledby="offcanvasTemperatureLabel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand text-white"><i class="bi bi-thermometer-half"></i> Temperature Converter</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigastion">
+                    <span><i class="bi bi-list text-white fs-1"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#offcanvasCalculator" class="nav-link text-white border-top" data-bs-toggle="offcanvas">Calculator</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link text-white dropdown-toggle" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Unit Converter
+                            </a>
+                            <ul class="dropdown-menu bg-dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a href="#offcanvasArea" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-textarea fs-6"></i> Area</a></li>
+                                <li><a href="#offcanvasData" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bar-chart fs-6"></i> Data Transfer</a></li>
+                                <li><a href="#offcanvasStorage" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-sd-card fs-6"></i> Digital Storage</a></li>
+                                <li><a href="#offcanvasEnergy" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bullseye fs-6"></i> Energy</a></li>
+                                <li><a href="#offcanvasFrequency" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-activity fs-6"></i> Frequency</a></li>
+                                <li><a href="#offcanvasLength" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-rulers fs-6"></i> Length</a></li>
+                                <li><a href="#offcanvasMass" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-binoculars fs-6"></i> Mass</a></li>
+                                <li><a href="#offcanvasPressure" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-arrow-down-up fs-6"></i> Pressure</a></li>
+                                <li><a href="#offcanvasSpeed" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-speedometer fs-6"></i> Speed</a></li>
+                                <li><a href="#" class="dropdown-item text-white-50 border-bottom"><i class="bi bi-thermometer-half fs-6"></i> Temperature</a></li>
+                                <li><a href="#offcanvasTime" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-alarm fs-6"></i> Time</a></li>
+                                <li><a href="#offcanvasVolume" class="dropdown-item text-white" data-bs-toggle="offcanvas"><i class="bi bi-box fs-6"></i> Volume</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Label dan input -->
+        <div class="card border-bottom-0">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Temperature</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="input-group mt-5 mb-5">
+                    <input type="number" name="celcius" id="celcius" class="form-control text-center temp-input" placeholder="degree celcius">
+                    <span class="input-group-text">&deg;C</span>
+                </div>
+                <div class="input-group mb-5">
+                    <input type="number" name="reaumur" id="reaumur" class="form-control text-center temp-input" placeholder="degree reaumur">
+                    <span class="input-group-text">&deg;Re</span>
+                </div>
+                <div class="input-group mb-5">
+                    <input type="number" name="fahrenheit" id="fahrenheit" class="form-control text-center temp-input" placeholder="degree fahrenheit">
+                    <span class="input-group-text">&deg;F</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" name="kelvin" id="kelvin" class="form-control text-center temp-input" placeholder="kelvin">
+                    <span class="input-group-text">K</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Time converter -->
+    <div class="mx-auto offcanvas offcanvas-start" tabindex="-1" id="offcanvasTime" aria-labelledby="offcanvasTimeLabel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand text-white"><i class="bi bi-alarm"></i> Time Converter</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigastion">
+                    <span><i class="bi bi-list text-white fs-1"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#offcanvasCalculator" class="nav-link text-white border-top" data-bs-toggle="offcanvas">Calculator</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link text-white dropdown-toggle" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Unit Converter
+                            </a>
+                            <ul class="dropdown-menu bg-dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a href="#offcanvasArea" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-textarea fs-6"></i> Area</a></li>
+                                <li><a href="#offcanvasData" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bar-chart fs-6"></i> Data Transfer</a></li>
+                                <li><a href="#offcanvasStorage" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-sd-card fs-6"></i> Digital Storage</a></li>
+                                <li><a href="#offcanvasEnergy" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bullseye fs-6"></i> Energy</a></li>
+                                <li><a href="#offcanvasFrequency" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-activity fs-6"></i> Frequency</a></li>
+                                <li><a href="#offcanvasLength" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-rulers fs-6"></i> Length</a></li>
+                                <li><a href="#offcanvasMass" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-binoculars fs-6"></i> Mass</a></li>
+                                <li><a href="#offcanvasPressure" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-arrow-down-up fs-6"></i> Pressure</a></li>
+                                <li><a href="#offcanvasSpeed" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-speedometer fs-6"></i> Speed</a></li>
+                                <li><a href="#offcanvasTemperature" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-thermometer-half fs-6"></i> Temperature</a></li>
+                                <li><a href="#" class="dropdown-item text-white-50 border-bottom"><i class="bi bi-alarm fs-6"></i> Time</a></li>
+                                <li><a href="#offcanvasVolume" class="dropdown-item text-white" data-bs-toggle="offcanvas"><i class="bi bi-box fs-6"></i> Volume</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Label dan input -->
+        <div class="card border-bottom-0">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Time</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="input-group mt-3 mb-3">
+                    <input type="number" name="sec" id="sec" class="form-control text-center time-input" placeholder="second">
+                    <span class="input-group-text">sec</span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="min" id="min" class="form-control text-center time-input" placeholder="minute">
+                    <span class="input-group-text">min</span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="hour" id="hour" class="form-control text-center time-input" placeholder="hour">
+                    <span class="input-group-text">h</span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="day" id="day" class="form-control text-center time-input" placeholder="day">
+                    <span class="input-group-text">d</span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="week" id="week" class="form-control text-center time-input" placeholder="week">
+                    <span class="input-group-text"><small>week</small></span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="month" id="month" class="form-control text-center time-input" placeholder="month">
+                    <span class="input-group-text"><small>month</small></span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="year" id="year" class="form-control text-center time-input" placeholder="calendar year">
+                    <span class="input-group-text"><small>year</small></span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="dec" id="dec" class="form-control text-center time-input" placeholder="decade">
+                    <span class="input-group-text">dec</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" name="century" id="century" class="form-control text-center time-input" placeholder="century">
+                    <span class="input-group-text">C</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Volume converter -->
+    <div class="mx-auto offcanvas offcanvas-start" tabindex="-1" id="offcanvasVolume" aria-labelledby="offcanvasVolumeLabel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand text-white"><i class="bi bi-box"></i> Volume Converter</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigastion">
+                    <span><i class="bi bi-list text-white fs-1"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#offcanvasCalculator" class="nav-link text-white border-top" data-bs-toggle="offcanvas">Calculator</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link text-white dropdown-toggle" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Unit Converter
+                            </a>
+                            <ul class="dropdown-menu bg-dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a href="#offcanvasArea" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-textarea fs-6"></i> Area</a></li>
+                                <li><a href="#offcanvasData" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bar-chart fs-6"></i> Data Transfer</a></li>
+                                <li><a href="#offcanvasStorage" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-sd-card fs-6"></i> Digital Storage</a></li>
+                                <li><a href="#offcanvasEnergy" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-bullseye fs-6"></i> Energy</a></li>
+                                <li><a href="#offcanvasFrequency" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-activity fs-6"></i> Frequency</a></li>
+                                <li><a href="#offcanvasLength" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-rulers fs-6"></i> Length</a></li>
+                                <li><a href="#offcanvasMass" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-binoculars fs-6"></i> Mass</a></li>
+                                <li><a href="#offcanvasPressure" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-arrow-down-up fs-6"></i> Pressure</a></li>
+                                <li><a href="#offcanvasSpeed" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-speedometer fs-6"></i> Speed</a></li>
+                                <li><a href="#offcanvasTemperature" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-thermometer-half fs-6"></i> Temperature</a></li>
+                                <li><a href="#offcanvasTime" class="dropdown-item text-white border-bottom" data-bs-toggle="offcanvas"><i class="bi bi-alarm fs-6"></i> Time</a></li>
+                                <li><a href="#" class="dropdown-item text-white-50"><i class="bi bi-box fs-6"></i> Volume</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Label dan input -->
+        <div class="card border-bottom-0">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Metric Units</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <input type="number" name="m3" id="m3" class="form-control text-center volume-input" placeholder="cubic meter">
+                    <span class="input-group-text">m&sup3;</span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="liter" id="liter" class="form-control text-center volume-input" placeholder="liter">
+                    <span class="input-group-text">l</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" name="ml" id="ml" class="form-control text-center volume-input" placeholder="milliliter">
+                    <span class="input-group-text">ml</span>
+                </div>
+            </div>
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Imperial Units</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <input type="number" name="ft3" id="ft3" class="form-control text-center volume-input" placeholder="cubic foot">
+                    <span class="input-group-text">ft&sup3;</span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="in3" id="in3" class="form-control text-center volume-input" placeholder="cubic inch">
+                    <span class="input-group-text">in&sup3;</span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="usgal" id="usgal" class="form-control text-center volume-input" placeholder="US gallon">
+                    <span class="input-group-text"><small>US gal</small></span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="ukgal" id="ukgal" class="form-control text-center volume-input" placeholder="UK gallon">
+                    <span class="input-group-text"><small>UK gal</small></span>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" name="usfo" id="usfo" class="form-control text-center volume-input" placeholder="US fluid ounce">
+                    <span class="input-group-text"><small>US floz</small></span>
+                </div>
+                <div class="input-group">
+                    <input type="number" name="ukfo" id="ukfo" class="form-control text-center volume-input" placeholder="UK fluid ounce">
+                    <span class="input-group-text"><small>UK floz</small></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="resources/calculator.js"></script>
+    <script src="resources/area.js"></script>
+    <script src="resources/datatransfer.js"></script>
+    <script src="resources/storage.js"></script>
+    <script src="resources/energy.js"></script>
+    <script src="resources/frequency.js"></script>
+    <script src="resources/length.js"></script>
+    <script src="resources/mass.js"></script>
+    <script src="resources/pressure.js"></script>
+    <script src="resources/speed.js"></script>
+    <script src="resources/temperature.js"></script>
+    <script src="resources/time.js"></script>
+    <script src="resources/volume.js"></script>
+</body>
+</html>
